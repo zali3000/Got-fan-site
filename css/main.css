@@ -1234,3 +1234,17 @@ body.detail-open{overflow:hidden;}
 .image-unavailable{position:relative!important;display:flex!important;align-items:center;justify-content:center;min-height:180px;background:radial-gradient(circle at center,rgba(216,178,106,.09),transparent 58%),linear-gradient(145deg,#101820,#05090d);overflow:hidden;}
 .image-unavailable::before{content:'ARCHIVE IMAGE';font:600 9px/1 "Cinzel",serif;letter-spacing:.24em;color:rgba(216,178,106,.72);text-align:center;}
 .image-unavailable::after{content:'IMAGE UNAVAILABLE';position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font:8px/1 "Cinzel",serif;letter-spacing:.16em;color:rgba(235,226,210,.42);white-space:nowrap;}
+
+
+/* Data-driven archive explorer controls */
+.card-explorer-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 22px;padding:12px 14px;border:1px solid rgba(184,147,63,.18);background:rgba(12,12,12,.62);border-radius:2px}
+.card-explorer-label{display:flex;flex-direction:column;gap:3px}.card-explorer-label span{font:600 9px "Cinzel",serif;letter-spacing:.18em;color:var(--gold);opacity:.78}.card-explorer-label b{font:500 12px "Cinzel",serif;color:var(--parchment)}
+.card-sort-label{display:block}.card-sort-select{min-width:170px;padding:9px 30px 9px 11px;border:1px solid rgba(184,147,63,.3);background:var(--panel,#111);color:var(--parchment);font:500 11px "Cinzel",serif;letter-spacing:.05em;border-radius:2px;cursor:pointer}.card-sort-select:focus{outline:2px solid rgba(184,147,63,.45);outline-offset:2px}
+@media (max-width:600px){.card-explorer-toolbar{align-items:stretch;flex-direction:column;gap:10px}.card-sort-select{width:100%;min-width:0}.card-explorer-label b{font-size:11px}}
+
+/* Shareable archive detail actions */
+.detail-actions{position:absolute;top:14px;right:14px;z-index:4;display:flex;align-items:center;gap:8px}
+.detail-actions .detail-share{border:1px solid rgba(255,255,255,.18);background:rgba(12,12,12,.72);color:inherit;padding:8px 11px;border-radius:4px;font-size:10px;letter-spacing:.12em;font-weight:700;cursor:pointer;backdrop-filter:blur(8px)}
+.detail-actions .detail-share:hover{border-color:rgba(255,255,255,.38)}
+.detail-actions .detail-close{position:static!important}
+@media(max-width:600px){.detail-actions{top:9px;right:9px}.detail-actions .detail-share{font-size:9px;padding:7px 8px}}
