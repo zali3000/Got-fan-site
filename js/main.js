@@ -581,7 +581,18 @@ let modal=document.querySelector('.detail-modal');
  }
  const content=modal.querySelector('.detail-content');
  let detailTrigger=null;
- const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('detail-open');detailTrigger?.focus();detailTrigger=null;setTimeout(()=>modal.hidden=true,180);};
+ const close=()=>{
+   const trigger=detailTrigger;
+   modal.classList.remove('open');
+   modal.setAttribute('aria-hidden','true');
+   document.body.classList.remove('detail-open');
+   const clean=new URL(location.href);
+   clean.searchParams.delete('open');
+   clean.hash='';
+   history.replaceState(null,'',clean.pathname+(clean.search?clean.search:''));
+   detailTrigger=null;
+   setTimeout(()=>{modal.hidden=true; if(trigger && document.contains(trigger)) trigger.focus();},180);
+ };
  const shareButton=modal.querySelector('.detail-share');
  const updateShareButton=()=>{if(shareButton){shareButton.textContent='COPY LINK';shareButton.disabled=false;}};
  const trapDetailFocus=e=>{if(e.key!=='Tab'||!modal.classList.contains('open'))return;const f=[...modal.querySelectorAll('button,a,input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}};

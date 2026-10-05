@@ -1248,3 +1248,16 @@ body.detail-open{overflow:hidden;}
 .detail-actions .detail-share:hover{border-color:rgba(255,255,255,.38)}
 .detail-actions .detail-close{position:static!important}
 @media(max-width:600px){.detail-actions{top:9px;right:9px}.detail-actions .detail-share{font-size:9px;padding:7px 8px}}
+
+.detail-actions{position:absolute;right:14px;top:12px;z-index:20;display:flex;align-items:center;gap:8px;}
+.detail-actions .detail-share,.detail-actions .detail-close{position:static;width:auto;min-height:40px;border:1px solid rgba(216,178,106,.3);background:rgba(0,0,0,.52);color:#eee;cursor:pointer;}
+.detail-actions .detail-share{padding:0 13px;font:600 10px "Cinzel",serif;letter-spacing:.14em;}
+.detail-actions .detail-close{width:44px;height:44px;padding:0;font-size:28px;line-height:1;display:grid;place-items:center;touch-action:manipulation;}
+.detail-actions button:hover,.detail-actions button:focus-visible{border-color:rgba(216,178,106,.72);background:rgba(216,178,106,.12);outline:none;}
+.detail-dialog{display:flex;flex-direction:column;}
+.detail-content{flex:1;min-height:0;}
+@media(max-width:720px){
+  .detail-actions{right:10px;top:10px;gap:6px;}
+  .detail-actions .detail-share{display:none;}
+  .detail-actions .detail-close{width:44px;height:44px;}
+  }
